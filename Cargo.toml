@@ -1,0 +1,8 @@
+[package]
+name = "pkginstall"
+version = "0.1.0"
+authors = ["WebD <eliangu3600103@gmail.com>"]
+
+[dependencies]
+clap = "2.32.0"
+colored = "1.6.1"
