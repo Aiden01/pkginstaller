@@ -1,3 +1,7 @@
+extern crate colored;
+
+pub mod logger;
+
 #[derive(Debug)]
 pub struct PKGManager {
     name: String,

@@ -1,9 +1,10 @@
-#[macro_use]
+
 extern crate clap;
 extern crate colored;
 extern crate pkginstall;
 use clap::{App, Arg, ArgMatches};
 use colored::*;
+use pkginstall::logger::{LogType, log};
 
 fn build_cli() -> App<'static, 'static> {
     App::new("pkginstall")
@@ -24,9 +25,9 @@ fn main() {
         Some(pkgm_name) => {
             match pkginstall::is_valid_pkg(pkgm_name) {
                 Some(pkgm) => println!("{:?}", pkgm),
-                None => println!("{}", "[ERROR]: Please provide a valid package manager.".red())
+                None => log("Please provide a valid package manager.", LogType::Error)
             }
         },
-        None => println!("{}", "[ERROR]: Please provide the package manager that you want to use.".red())
+        None => log("Please provide the package manager that you want to use.", LogType::Error)
     }
 }
