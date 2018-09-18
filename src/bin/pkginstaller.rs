@@ -31,7 +31,10 @@ fn main() {
                 Some(pkgm) => {
                    let file_path = args.value_of("file").unwrap();
                    match File::open(file_path) {
-                       Ok(file) => println!("{:?}", file),
+                       Ok(file) => match pkgm.install(file) {
+                           Ok(_) => log("Packages as been installed successfully", LogType::Success),
+                           Err(e) => log(&e.to_string(), LogType::Error)
+                       },
                        Err(_s) => log("Unable to open the file", LogType::Error)
                    }
                 },

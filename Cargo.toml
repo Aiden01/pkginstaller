@@ -6,3 +6,4 @@ authors = ["WebD <eliangu3600103@gmail.com>"]
 [dependencies]
 clap = "2.32.0"
 colored = "1.6.1"
+json = "0.11.13"
